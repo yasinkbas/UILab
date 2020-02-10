@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'UILab_Example' do
+  pod 'UILab', :path => '../'
+
+  target 'UILab_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+  end
+end
