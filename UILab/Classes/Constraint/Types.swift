@@ -31,24 +31,16 @@ public enum RawConstraintType {
     case width
     case height
     
-    var constraint: NSLayoutAttribute {
+    var constraint: NSLayoutConstraint.Attribute {
         switch self {
-        case.top:
-            return NSLayoutAttribute.top
-        case .left:
-            return NSLayoutAttribute.left
-        case .bottom:
-            return NSLayoutAttribute.bottom
-        case .right:
-            return NSLayoutAttribute.right
-        case .centerY:
-            return NSLayoutAttribute.centerY
-        case .centerX:
-            return NSLayoutAttribute.centerX
-        case .width:
-            return NSLayoutAttribute.width
-        case .height:
-            return NSLayoutAttribute.height
+        case.top: return NSLayoutConstraint.Attribute.top
+        case .left: return NSLayoutConstraint.Attribute.left
+        case .bottom: return NSLayoutConstraint.Attribute.bottom
+        case .right: return NSLayoutConstraint.Attribute.right
+        case .centerY: return NSLayoutConstraint.Attribute.centerY
+        case .centerX: return NSLayoutConstraint.Attribute.centerX
+        case .width: return NSLayoutConstraint.Attribute.width
+        case .height: return NSLayoutConstraint.Attribute.height
         }
     }
 }
