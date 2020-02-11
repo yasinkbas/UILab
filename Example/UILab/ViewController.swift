@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
     
     override func loadView() {
@@ -36,13 +36,15 @@ class ViewController: UIViewController {
         
         view.addSubview(yellowView)
         view.addSubview(clickButton)
-        yellowView.set(.left(view.left, 100), .right(view.right, 100), .top(view.top, 50), .height(100))
-        clickButton.set(.center(view))
+        yellowView.set(.left(view.left, 0), .right(view.right, 0), .top(view.top, 0), .height(80))
+        clickButton.set(.center(view), .width(200), .height(50))
     }
     
     @objc
     func clickedButton(_ sender: UIButton) {
-        self.yellowView.get(.height).first?.constant = self.yellowView.get(.height).first?.constant != 500 ? 500 : 100
+        let height = yellowView.get(.height).first
+        height?.constant = height?.constant == 500 ? 80 : 500
+        
         UIView.animate(withDuration: 1) {
             self.view.layoutIfNeeded()
         }
