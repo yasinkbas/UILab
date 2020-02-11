@@ -44,7 +44,7 @@
 		A707D44727A6EAFE602344A4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		BD5A0052149C00120337610A /* Pods_UILab_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UILab_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C56B6E303AC2E6E474B45DA7 /* Pods-UILab_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UILab_Tests.debug.xcconfig"; path = "Target Support Files/Pods-UILab_Tests/Pods-UILab_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		F9B5D560CF150939FB4B2FF2 /* UILab.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = UILab.podspec; path = ../UILab.podspec; sourceTree = "<group>"; };
+		F9B5D560CF150939FB4B2FF2 /* UILab.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = UILab.podspec; path = ../UILab.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
