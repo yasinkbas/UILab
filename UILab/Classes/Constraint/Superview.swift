@@ -7,20 +7,6 @@
 
 import Foundation
 
-public struct Padding {
-    let top: Inset
-    let left: Inset
-    let bottom: Inset
-    let right: Inset
-    
-    public init(top: Inset, left: Inset, bottom: Inset, right: Inset) {
-        self.top = top
-        self.left = left
-        self.bottom = bottom
-        self.right = right
-    }
-}
-
 extension UIView {
     public func equalToSuper(with padding: Padding? = nil) {
         if let superview = self.superview {
@@ -39,16 +25,7 @@ extension UIView {
     }
 }
 
-extension UIView {
-    public enum DirectionType {
-        case top(Inset)
-        case left(Inset)
-        case bottom(Inset)
-        case right(Inset)
-        case width
-        case height
-    }
-    
+extension UIView {    
     public func equalToSuper(_ directions: DirectionType...) {
         guard let superview = superview else { return }
         self.translatesAutoresizingMaskIntoConstraints = false
