@@ -6,42 +6,23 @@
 //
 
 extension UIView {
-    public enum ConstraintType {
-        case top(YAxis,Inset = 0)
-        case left(XAxis,Inset = 0)
-        case bottom(YAxis,Inset = 0)
-        case right(XAxis,Inset = 0)
-        case centerY(YAxis,Inset = 0)
-        case centerX(XAxis,Inset = 0)
-        case center(UIView, x: Inset = 0, y: Inset = 0)
-        case width(Constant)
-        case height(Constant)
-    }
+    public var top: YAxis { return self.topAnchor }
+    public var left: XAxis { return self.leftAnchor }
+    public var leading: XAxis { return self.leadingAnchor }
+    public var bottom: YAxis { return self.bottomAnchor }
+    public var right: XAxis { return self.rightAnchor }
     
-    public var superCenterY: YAxis? {
-        return superview?.centerYAnchor
-    }
-    
-    public var superTop: YAxis? {
-        return superview?.topAnchor
-    }
-    
-    public var superBottom: YAxis? {
-        return superview?.bottomAnchor
-    }
-    
-    public var superCenterX: XAxis? {
-        return superview!.centerXAnchor
-    }
-    
-    public var superLeft: XAxis? {
-        return superview?.leftAnchor
-    }
-    
-    public var superRight: XAxis? {
-        return superview?.rightAnchor
-    }
-    
+    public var superCenterY: YAxis? { return superview?.centerYAnchor }
+    public var superCenterX: XAxis? { return superview!.centerXAnchor }
+    public var superTop: YAxis? { return superview?.top }
+    public var superLeft: XAxis? { return superview?.left }
+    public var superLeading: XAxis? { return superview?.leading }
+    public var superBottom: YAxis? { return superview?.bottomAnchor }
+    public var superRight: XAxis? { return superview?.rightAnchor }
+    public var superTrailing: XAxis? { return superview?.trailingAnchor }
+}
+
+extension UIView {    
     public func set(_ constraints: ConstraintType...) {
         self.translatesAutoresizingMaskIntoConstraints = false
         constraints.forEach{
@@ -60,4 +41,13 @@ extension UIView {
             }
         }
     }
+    
+    public func get(_ type: RawConstraintType) -> Constraints {
+        print("i am in")
+        return self.constraints.filter {
+            print("found one -> ", $0.firstAttribute, "type: ", type.constraint)
+            return $0.firstAttribute == type.constraint
+        }
+    }
 }
+
