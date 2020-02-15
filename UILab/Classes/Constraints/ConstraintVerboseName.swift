@@ -21,6 +21,7 @@ extension UIView {
         }
         set(newValue) {
             objc_setAssociatedObject(self, &AssociatedKeys.verboseState, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            self.constraints.last?.identifier = "\(newValue).\(String(describing: self.constraints.last?.firstAttribute))"
         }
     }
 }
