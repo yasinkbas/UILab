@@ -1,6 +1,6 @@
 //
 //  ConstraintAttributes.swift
-//  FBSnapshotTestCase
+//  UILab
 //
 //  Created by Yasin Akbaş on 11.02.2020.
 //

@@ -1,6 +1,6 @@
 //
 //  typealias.swift
-//  FBSnapshotTestCase
+//  UILab
 //
 //  Created by Yasin Akbaş on 10.02.2020.
 //
@@ -16,3 +16,4 @@ public typealias Constraint     = NSLayoutConstraint
 public typealias Constraints    = [NSLayoutConstraint]
 public typealias Attribute      = NSLayoutConstraint.Attribute
 public typealias Dimension      = NSLayoutDimension
+
