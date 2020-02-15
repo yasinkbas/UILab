@@ -12,7 +12,7 @@ internal class UILabLogger {
         case notice = "✅"
         case warning = "⚠️"
         case error = "❗️"
-        case unknown = "😐"
+        case unknown = "none"
     }
     
     internal func notice(_ log: Log, debug:Bool) {

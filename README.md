@@ -20,10 +20,6 @@ it, simply add the following line to your Podfile:
 pod 'UILab'
 ```
 
-## Author
-
-yasinkbas, yasin.kbas12@gmail.com
-
 ## License
 
 UILab is available under the MIT license. See the LICENSE file for more info.

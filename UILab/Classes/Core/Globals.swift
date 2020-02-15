@@ -7,8 +7,12 @@
 
 import Foundation
 
-let debug = UILab.Settings.debug
-let logger = UILabLogger()
+var debug = UILab.Settings.debug {
+    didSet {
+        logger = debug ? UILabLogger() : nil
+    }
+}
+var logger: UILabLogger? = UILabLogger()
 
 struct Constants {
     static var debugKey = "UILab_debug"
