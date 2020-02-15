@@ -15,7 +15,17 @@ extension UIView {
         height: Constant = 0,
         enableInsets: Bool = true
     ) {
-        logger.notice(message: "axises: \(axises)\npadding: \(padding!)\nwidth: \(width)\nheight: \(height)\nenableInsets: \(enableInsets)", constraint: nil, debug: debug)
+        logger.notice(
+            ConstraintLog(
+                verboseName: self.verboseName,
+                messages: [
+                    "axises: \(axises)",
+                    "padding: \(padding!)",
+                    "width: \(width)",
+                    "height: \(height)",
+                    "enableInsets: \(enableInsets)"
+            ], constraint: nil),
+            debug: debug)
         let padding = padding ?? Padding.zero
         var topInset = Inset(0)
         var bottomInset = Inset(0)

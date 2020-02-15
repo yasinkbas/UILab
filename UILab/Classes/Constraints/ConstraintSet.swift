@@ -17,7 +17,13 @@ extension UIView {
             _assign1 = assign1
             _assign2 = assign2
             
-            logger.notice(message: "listened log: \(anchor ?? "") \(assign1 ?? "") \(assign2 ?? "")", constraint: nil, debug: debug)
+            logger.notice(
+                ConstraintLog(
+                    verboseName: self.verboseName,
+                    messages: ["listened log: \(anchor ?? "") \(assign1 ?? "") \(assign2 ?? "")"],
+                    constraint: nil),
+                debug: debug
+            )
         }
         
         constraints.forEach{

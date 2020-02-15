@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         button.setTitle("Click me", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = UIColor.yellow
+        button.verboseName = "my_yellow_button"
         button.addTarget(self, action: #selector(clickedButton(_:)), for: .touchUpInside)
         return button
     }()
@@ -45,6 +46,7 @@ class ViewController: UIViewController {
         let height = yellowView.get(.height).first
         height?.constant = height?.constant == 500 ? 80 : 500
         
+        print("->-> clickbutton verbose_name \(clickButton.verboseName)")
         UIView.animate(withDuration: 1) {
             self.view.layoutIfNeeded()
         }
