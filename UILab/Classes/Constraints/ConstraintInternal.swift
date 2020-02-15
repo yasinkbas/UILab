@@ -1,6 +1,6 @@
 //
 //  CoreConstraint.swift
-//  FBSnapshotTestCase
+//  UILab
 //
 //  Created by Yasin Akbaş on 10.02.2020.
 //
@@ -15,6 +15,7 @@ extension UIView {
         height: Constant = 0,
         enableInsets: Bool = true
     ) {
+        logger.notice(message: "axises: \(axises)\npadding: \(padding!)\nwidth: \(width)\nheight: \(height)\nenableInsets: \(enableInsets)", constraint: nil, debug: debug)
         let padding = padding ?? Padding.zero
         var topInset = Inset(0)
         var bottomInset = Inset(0)
