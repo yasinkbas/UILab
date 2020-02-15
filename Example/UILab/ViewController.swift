@@ -13,23 +13,19 @@ class ViewController: UIViewController {
     lazy var yellowView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.yellow
+        view.layer.shadowColor = UIColor.black.cgColor
         return view
     }()
     
     lazy var clickButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Click me", for: .normal)
+        button.setTitle("UILab", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = UIColor.yellow
         button.verboseName = "my_yellow_button"
         button.addTarget(self, action: #selector(clickedButton(_:)), for: .touchUpInside)
         return button
     }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
     
     override func loadView() {
         super.loadView()
@@ -44,18 +40,11 @@ class ViewController: UIViewController {
     @objc
     func clickedButton(_ sender: UIButton) {
         let height = yellowView.get(.height).first
-        height?.constant = height?.constant == 500 ? 80 : 500
+        let to = self.view.bounds.height * 6 / 10
+        height?.constant = height?.constant == to ? 80 : to
         
-        print("->-> clickbutton verbose_name \(clickButton.verboseName)")
         UIView.animate(withDuration: 1) {
             self.view.layoutIfNeeded()
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 }
-
