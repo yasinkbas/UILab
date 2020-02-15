@@ -10,8 +10,6 @@ import Foundation
 let debug = UILab.Settings.debug
 let logger = UILabLogger()
 
-
-
 struct Constants {
     static var debugKey = "UILab_debug"
 }
