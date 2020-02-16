@@ -3,7 +3,9 @@
 //  UILab
 //
 //  Created by Yasin Akbaş on 10.02.2020.
-//b
+//
+
+import UIKit
 
 extension UIView {    
     public func set(_ constraints: ConstraintType...) {
@@ -83,12 +85,6 @@ extension UIView {
                 logPoint(view, xInset, yInset, constraint: self.constraints.last)
             }
         }
-    }
-    
-    public func get(_ attribute: Attribute) -> Constraints {
-        var constraints = [NSLayoutConstraint]()
-        self.constraints.forEach { $0.firstAttribute == attribute ? constraints.append($0) : nil }
-        return constraints
     }
 }
 

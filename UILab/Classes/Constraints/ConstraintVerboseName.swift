@@ -7,11 +7,7 @@
 
 import UIKit
 
-extension UIView {
-    struct AssociatedKeys {
-        static var verboseState: UInt8 = 0
-    }
-    
+extension UIView {    
     public var verboseName: String {
         get {
             guard let value = objc_getAssociatedObject(self, &AssociatedKeys.verboseState) as? String else {
