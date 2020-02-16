@@ -1,8 +1,8 @@
 //
-//  Globals.swift
 //  UILab
 //
-//  Created by Yasin Akbaş on 12.02.2020.
+//  Created on 12.02.2020.
+//  Using Swift 5.0
 //
 
 import Foundation

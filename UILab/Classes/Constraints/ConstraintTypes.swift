@@ -1,15 +1,24 @@
 //
-//  EnumTypes.swift
 //  UILab
 //
-//  Created by Yasin Akbaş on 11.02.2020.
+//  Created on 16.02.2020.
+//  Using Swift 5.0
 //
 
 import Foundation
 
-public struct Padding {
+public struct Padding: CustomStringConvertible {
     static var zero: Padding {
         return Padding(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    public var description: String {
+        return """
+        top: \(top)
+        left: \(left)
+        bottom: \(bottom)
+        right: \(right)
+        """
     }
     
     let top: Inset
