@@ -1,5 +1,4 @@
 //
-//  ViewController.swift
 //  UILab
 //
 //  Created on 02/11/2020.
@@ -7,16 +6,27 @@
 //
 
 // Explanation //
-// (1)
-// (2)
-// (3)
-// (4)
-// (5)
+// (1) UILab verboseName:
+//it just needed for readable log. Given verbose name will be shown above log box.
+//
+// (2) UILab set: `view.set(.<which anchor>)`
+//
+//
+// (3) UILab set: `view.set(.<which anchor>)`
+//
+//
+// (4) UILab set: `view.set(.<which anchor>)`
+//
+//
+// (5) UILab set: `view.set(.<which anchor>)`
+//
+//
+// (6) UILab get: `<view>.get(.<which anchor>)`
+//Getting constraint with specific anchor. it returns array<NSLayoutConstraint> so we got first but you should be careful which constraint you get.
 
 import UILab
 
 class ViewController: UIViewController {
-    
     lazy var thinBarWidth: CGFloat = self.view.bounds.width / 2 - 10
     lazy var thinBarHeight: CGFloat = 1
     
@@ -24,7 +34,7 @@ class ViewController: UIViewController {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.black
-        label.font = label.font.withSize(16)
+        label.font = label.font.withSize(20)
         label.textAlignment = .center
         label.text = "UILab"
         label.verboseName = "my_title_label" // (1)
@@ -77,51 +87,26 @@ class ViewController: UIViewController {
     // MARK: - setup initial constraints
     func setConstraints() {
         // (2)
-        yellowView.set(
-            .left(view.left),
-            .right(view.right),
-            .top(view.top),
-            .height(80)
-        )
-        
-        // (3)
-        titleLabel.set(
-            .bottom(yellowView.bottom, 8),
-            .left(yellowView.left),
-            .right(yellowView.right)
-        )
-        
-        // (4)
-        clickButton.set(
-            .center(view),
-            .width(200),
-            .height(50)
-        )
-        
-        // (5)
-        thinWhiteBar.set(
-            .top(yellowView.bottom, 16),
-            .width(thinBarWidth),
-            .height(thinBarHeight),
-            .centerX(yellowView.centerX)
-        )
+        yellowView.set(.left(view.left), .right(view.right), .top(view.top), .height(80))
+        titleLabel.set(.bottom(yellowView.bottom, 8), .left(yellowView.left), .right(yellowView.right))
+        clickButton.set(.center(view), .width(200), .height(50))
+        thinWhiteBar.set(.top(yellowView.bottom, 16), .width(thinBarWidth), .height(thinBarHeight), .centerX(yellowView.centerX))
     }
     
     // MARK: - button target
     @objc
     func clickedButton(_ sender: UIButton) {
-        let height = yellowView.get(.height).first // (6)
+        let yellowViewHeightAnchor = yellowView.get(.height).first
         let to = self.view.bounds.height * 8 / 10
-        height?.constant = height?.constant == to ? 80 : to
+        yellowViewHeightAnchor?.constant = yellowViewHeightAnchor?.constant == to ? 80 : to
         
-        let clicked = height?.constant == to
+        let clicked = yellowViewHeightAnchor?.constant == to
         
         UIView.animate(withDuration: 1) {
             self.view.layoutIfNeeded()
             self.titleLabel.transform = clicked ?
                 CGAffineTransform(scaleX: 2, y: 2).concatenating(CGAffineTransform(translationX: 0, y: 100)) : .identity
         }
-        
         
         UIView.transition(with: titleLabel, duration: 0.2, options: .transitionFlipFromTop, animations: {
             self.titleLabel.textColor = clicked ? UIColor.white : UIColor.black
@@ -134,7 +119,7 @@ class ViewController: UIViewController {
         })
         
         if clicked {
-            self.yellowView.roundCorners([.bottomLeft, .bottomRight], radius: self.yellowView.bounds.width / 2)
+            self.yellowView.roundCorners([.bottomLeft, .bottomRight], radius: self.yellowView.bounds.width / 5)
         }
     }
 }

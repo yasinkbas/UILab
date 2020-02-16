@@ -34,6 +34,10 @@ extension UIView {
                 self.leftAnchor.constraint(equalTo: anchor, constant: inset).isActive = true
                 setPoint(anchor, inset, nil, constraint: self.constraints.last)
                 
+            case .leftOf(let view, let inset):
+                self.left.constraint(equalTo: view.left, constant: inset).isActive = true
+                setPoint(view, inset, nil, constraint: self.constraints.last)
+                
             case .right(let anchor, let inset):
                 self.rightAnchor.constraint(equalTo: anchor, constant: -inset).isActive = true
                 setPoint(anchor, inset, nil, constraint: self.constraints.last)
