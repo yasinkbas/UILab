@@ -9,7 +9,7 @@ import Foundation
 
 extension UIView {
     public func equalToSuper(with padding: Padding? = nil) {
-        if let _ = self.superview {
+        if self.superview != nil {
             activate(
                 axises: Axises(superview),
                 padding: padding,

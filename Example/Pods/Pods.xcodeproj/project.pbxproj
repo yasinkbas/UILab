@@ -342,13 +342,13 @@
 		C2B6451C23F1FC3700E13216 /* Constraints */ = {
 			isa = PBXGroup;
 			children = (
+				C2F9BF3C23F2E51100A80878 /* ConstraintTypes.swift */,
 				C2D9F9A123F31DC6006D5D76 /* ConstraintAttributes.swift */,
 				C2B6452023F1FC3700E13216 /* ConstraintInternal.swift */,
 				C2ECC09B23F94F020023C4EA /* ConstraintGet.swift */,
 				C2B6451D23F1FC3700E13216 /* ConstraintSet.swift */,
 				C2B6451E23F1FC3700E13216 /* ConstraintSuper.swift */,
 				C2B6451F23F1FC3700E13216 /* ConstraintTypealias.swift */,
-				C2F9BF3C23F2E51100A80878 /* ConstraintTypes.swift */,
 				C2ECC09823F94EA80023C4EA /* ConstraintAssociatedKeys.swift */,
 				C201304623F892AA00C072CF /* ConstraintVerboseName.swift */,
 			);
