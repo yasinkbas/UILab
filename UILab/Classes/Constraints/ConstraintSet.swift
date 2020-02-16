@@ -1,8 +1,8 @@
 //
-//  Constraints.swift
 //  UILab
 //
-//  Created by Yasin Akbaş on 10.02.2020.
+//  Created on 10.02.2020.
+//  Using Swift 5.0
 //
 
 import UIKit

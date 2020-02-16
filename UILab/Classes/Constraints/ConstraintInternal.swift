@@ -1,11 +1,11 @@
 //
-//  CoreConstraint.swift
 //  UILab
 //
-//  Created by Yasin Akbaş on 10.02.2020.
+//  Created on 10.02.2020.
+//  Using Swift 5.0
 //
 
-import Foundation
+import UIKit
 
 extension UIView {
     internal func activate(
@@ -20,7 +20,7 @@ extension UIView {
                 verboseName: self.verboseName,
                 messages: [
                     "axises: \(axises)",
-                    "padding: \(padding!)",
+                    "padding: \(String(describing: padding))",
                     "width: \(width)",
                     "height: \(height)",
                     "enableInsets: \(enableInsets)"

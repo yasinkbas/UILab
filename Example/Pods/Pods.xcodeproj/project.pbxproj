@@ -564,10 +564,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				98A98149697C80CEF8D5772791E92E66 /* FBSnapshotTestCase */,
+				5E1243120B02242D966B661FF7869671 /* UILab */,
 				E05E7AD49268D13721B40B34068A616D /* Pods-UILab_Example */,
 				3C55617E14C8A33850B3C7D2FAD4A563 /* Pods-UILab_Tests */,
-				5E1243120B02242D966B661FF7869671 /* UILab */,
+				98A98149697C80CEF8D5772791E92E66 /* FBSnapshotTestCase */,
 			);
 		};
 /* End PBXProject section */
