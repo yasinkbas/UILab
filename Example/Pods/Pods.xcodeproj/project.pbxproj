@@ -332,8 +332,8 @@
 			isa = PBXGroup;
 			children = (
 				C201304E23F89F8600C072CF /* Logger */,
-				C2D9F9A423F34FCE006D5D76 /* Core */,
 				C2B6451C23F1FC3700E13216 /* Constraints */,
+				C2D9F9A423F34FCE006D5D76 /* UILab */,
 			);
 			name = Classes;
 			path = UILab/Classes;
@@ -355,13 +355,13 @@
 			path = Constraints;
 			sourceTree = "<group>";
 		};
-		C2D9F9A423F34FCE006D5D76 /* Core */ = {
+		C2D9F9A423F34FCE006D5D76 /* UILab */ = {
 			isa = PBXGroup;
 			children = (
 				C2D9F9A523F34FD9006D5D76 /* UILab.swift */,
 				C2D9F9A823F3511D006D5D76 /* Globals.swift */,
 			);
-			path = Core;
+			path = UILab;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {

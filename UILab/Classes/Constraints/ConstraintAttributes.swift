@@ -16,6 +16,8 @@ extension UIView {
     public var right:           XAxis       { return self.rightAnchor }
     public var width:           Dimension   { return self.widthAnchor}
     public var height:          Dimension   { return self.heightAnchor }
+    public var centerY:         YAxis       { return self.centerYAnchor }
+    public var centerX:         XAxis       { return self.centerXAnchor }
     
     public var superCenterY:    YAxis?      { return superview?.centerYAnchor }
     public var superCenterX:    XAxis?      { return superview!.centerXAnchor }
