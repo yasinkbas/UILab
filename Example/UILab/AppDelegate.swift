@@ -1,8 +1,7 @@
 //
-//  AppDelegate.swift
 //  UILab
 //
-//  Created by yasinkbas on 02/11/2020.
+//  Created on 02/11/2020.
 //  Copyright (c) 2020 yasinkbas. All rights reserved.
 //
 

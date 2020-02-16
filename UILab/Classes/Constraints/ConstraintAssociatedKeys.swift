@@ -1,8 +1,8 @@
 //
-//  ConstraintUIView.swift
-//  FBSnapshotTestCase
+//  UILab
 //
-//  Created by Yasin Akbaş on 16.02.2020.
+//  Created on 16.02.2020.
+//  Using Swift 5.0
 //
 
 import UIKit
