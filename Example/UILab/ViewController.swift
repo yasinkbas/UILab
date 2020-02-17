@@ -96,6 +96,10 @@ class ViewController: UIViewController {
     // MARK: - button target
     @objc
     func clickedButton(_ sender: UIButton) {
+        performAnimation()
+    }
+    
+    private func performAnimation() {
         let yellowViewHeightAnchor = yellowView.get(.height).first
         let to = self.view.bounds.height * 8 / 10
         yellowViewHeightAnchor?.constant = yellowViewHeightAnchor?.constant == to ? 80 : to

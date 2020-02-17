@@ -31,10 +31,11 @@
 		B74CD6E6EBEA0B642776BCB37850415D /* UIImage+Snapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = EA718A72E676291836EBB46B85242155 /* UIImage+Snapshot.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		C201304823F892B700C072CF /* ConstraintVerboseName.swift in Sources */ = {isa = PBXBuildFile; fileRef = C201304623F892AA00C072CF /* ConstraintVerboseName.swift */; };
 		C201304D23F89E7900C072CF /* LogTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C201304C23F89E7900C072CF /* LogTypes.swift */; };
+		C294B1CA23FB14B600667BF2 /* Array+ compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C294B1C923FB14B600667BF2 /* Array+ compatibility.swift */; };
 		C2B6452123F1FC3700E13216 /* ConstraintSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B6451D23F1FC3700E13216 /* ConstraintSet.swift */; };
 		C2B6452223F1FC3700E13216 /* ConstraintSuper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B6451E23F1FC3700E13216 /* ConstraintSuper.swift */; };
 		C2B6452323F1FC3700E13216 /* ConstraintTypealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B6451F23F1FC3700E13216 /* ConstraintTypealias.swift */; };
-		C2B6452423F1FC3700E13216 /* ConstraintInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B6452023F1FC3700E13216 /* ConstraintInternal.swift */; };
+		C2B6452423F1FC3700E13216 /* ConstraintActivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B6452023F1FC3700E13216 /* ConstraintActivate.swift */; };
 		C2D9F9A323F31DCD006D5D76 /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9F9A123F31DC6006D5D76 /* ConstraintAttributes.swift */; };
 		C2D9F9A723F34FF3006D5D76 /* UILab.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9F9A523F34FD9006D5D76 /* UILab.swift */; };
 		C2D9F9AA23F3512A006D5D76 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9F9A823F3511D006D5D76 /* Globals.swift */; };
@@ -120,10 +121,11 @@
 		C0B4F7CECF8722D1D93E063AB69F25B8 /* Pods-UILab_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-UILab_Example-umbrella.h"; sourceTree = "<group>"; };
 		C201304623F892AA00C072CF /* ConstraintVerboseName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintVerboseName.swift; sourceTree = "<group>"; };
 		C201304C23F89E7900C072CF /* LogTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTypes.swift; sourceTree = "<group>"; };
+		C294B1C923FB14B600667BF2 /* Array+ compatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+ compatibility.swift"; sourceTree = "<group>"; };
 		C2B6451D23F1FC3700E13216 /* ConstraintSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintSet.swift; sourceTree = "<group>"; };
 		C2B6451E23F1FC3700E13216 /* ConstraintSuper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintSuper.swift; sourceTree = "<group>"; };
 		C2B6451F23F1FC3700E13216 /* ConstraintTypealias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintTypealias.swift; sourceTree = "<group>"; };
-		C2B6452023F1FC3700E13216 /* ConstraintInternal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintInternal.swift; sourceTree = "<group>"; };
+		C2B6452023F1FC3700E13216 /* ConstraintActivate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintActivate.swift; sourceTree = "<group>"; };
 		C2D9F9A123F31DC6006D5D76 /* ConstraintAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintAttributes.swift; sourceTree = "<group>"; };
 		C2D9F9A523F34FD9006D5D76 /* UILab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILab.swift; sourceTree = "<group>"; };
 		C2D9F9A823F3511D006D5D76 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 			children = (
 				C201304C23F89E7900C072CF /* LogTypes.swift */,
 				C2D9F9AB23F35156006D5D76 /* UILabLogger.swift */,
+				C294B1C923FB14B600667BF2 /* Array+ compatibility.swift */,
 			);
 			path = Logger;
 			sourceTree = "<group>";
@@ -333,7 +336,7 @@
 			children = (
 				C201304E23F89F8600C072CF /* Logger */,
 				C2B6451C23F1FC3700E13216 /* Constraints */,
-				C2D9F9A423F34FCE006D5D76 /* UILab */,
+				C2D9F9A423F34FCE006D5D76 /* Core */,
 			);
 			name = Classes;
 			path = UILab/Classes;
@@ -344,7 +347,7 @@
 			children = (
 				C2F9BF3C23F2E51100A80878 /* ConstraintTypes.swift */,
 				C2D9F9A123F31DC6006D5D76 /* ConstraintAttributes.swift */,
-				C2B6452023F1FC3700E13216 /* ConstraintInternal.swift */,
+				C2B6452023F1FC3700E13216 /* ConstraintActivate.swift */,
 				C2ECC09B23F94F020023C4EA /* ConstraintGet.swift */,
 				C2B6451D23F1FC3700E13216 /* ConstraintSet.swift */,
 				C2B6451E23F1FC3700E13216 /* ConstraintSuper.swift */,
@@ -355,13 +358,13 @@
 			path = Constraints;
 			sourceTree = "<group>";
 		};
-		C2D9F9A423F34FCE006D5D76 /* UILab */ = {
+		C2D9F9A423F34FCE006D5D76 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				C2D9F9A523F34FD9006D5D76 /* UILab.swift */,
 				C2D9F9A823F3511D006D5D76 /* Globals.swift */,
 			);
-			path = UILab;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -640,7 +643,8 @@
 				C2D9F9A323F31DCD006D5D76 /* ConstraintAttributes.swift in Sources */,
 				C2D9F9A723F34FF3006D5D76 /* UILab.swift in Sources */,
 				C2B6452223F1FC3700E13216 /* ConstraintSuper.swift in Sources */,
-				C2B6452423F1FC3700E13216 /* ConstraintInternal.swift in Sources */,
+				C2B6452423F1FC3700E13216 /* ConstraintActivate.swift in Sources */,
+				C294B1CA23FB14B600667BF2 /* Array+ compatibility.swift in Sources */,
 				C2ECC09C23F94F020023C4EA /* ConstraintGet.swift in Sources */,
 				C2D9F9AC23F35156006D5D76 /* UILabLogger.swift in Sources */,
 				C2B6452323F1FC3700E13216 /* ConstraintTypealias.swift in Sources */,

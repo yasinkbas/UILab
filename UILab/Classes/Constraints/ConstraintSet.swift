@@ -22,7 +22,9 @@ extension UIView {
             logger?.notice(
                 ConstraintLog(
                     verboseName: self.verboseName,
-                    messages: ["listened log: \(anchor ?? "") \(assign1 ?? "") \(assign2 ?? "")"],
+                    messages: [
+                        .listened(anchor, assign1, assign2)
+                    ],
                     constraint: constraint),
                 debug: debug
             )

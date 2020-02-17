@@ -50,6 +50,22 @@ public struct Axises {
     }
 }
 
+internal struct ConstraintWrapper {
+    let axises: Axises
+    let padding: Padding?
+    let width: Constant
+    let height: Constant
+    let enableInsets: Bool
+    
+    internal init(axises: Axises, padding: Padding? = Padding.zero, width: Constant = 0, height: Constant = 0, enableInsets: Bool = true) {
+        self.axises = axises
+        self.padding = padding
+        self.width = width
+        self.height = height
+        self.enableInsets = enableInsets
+    }
+}
+
 public enum ConstraintType {
     case left               (XAxis,Inset = 0)
     case leftOf             (View, Inset = 0)
