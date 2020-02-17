@@ -8,24 +8,19 @@
 import UIKit
 
 extension UIView {
-    internal func activate(_ wrapper: ConstraintWrapper) {
+    internal func activate(_ wrapper: ConstraintWrapper, commit: Bool = true) -> Constraints {
         logger?.notice(
             ConstraintLog(
                 verboseName: self.verboseName,
                 messages: [
-                    .display(
-                        axises: wrapper.axises,
-                        padding: wrapper.padding,
-                        width: wrapper.width,
-                        height: wrapper.height,
-                        enableInsets: wrapper.enableInsets
-                    )
+                    .display(wrapper: wrapper)
             ],constraint: nil),
             debug: debug
         )
         let padding = wrapper.padding ?? Padding.zero
         var topInset = Inset(0)
         var bottomInset = Inset(0)
+        var constraints = Constraints()
         
         self.translatesAutoresizingMaskIntoConstraints = false
         
@@ -36,22 +31,24 @@ extension UIView {
         }
         
         if let top = wrapper.axises.top {
-            self.topAnchor.constraint(equalTo: top, constant: padding.top+topInset).isActive = true
+            constraints.append(self.topAnchor.constraint(equalTo: top, constant: padding.top+topInset))
         }
         if let left = wrapper.axises.left {
-            self.leftAnchor.constraint(equalTo: left, constant: padding.left).isActive = true
+            constraints.append(self.leftAnchor.constraint(equalTo: left, constant: padding.left))
         }
         if let right = wrapper.axises.right {
-            rightAnchor.constraint(equalTo: right, constant: -padding.right).isActive = true
+            constraints.append(rightAnchor.constraint(equalTo: right, constant: -padding.right))
         }
         if let bottom = wrapper.axises.bottom {
-            bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom-bottomInset).isActive = true
+            constraints.append(bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom-bottomInset))
         }
         if wrapper.height != 0 {
-            heightAnchor.constraint(equalToConstant: wrapper.height).isActive = true
+            constraints.append(heightAnchor.constraint(equalToConstant: wrapper.height))
         }
         if wrapper.width != 0 {
-            widthAnchor.constraint(equalToConstant: wrapper.width).isActive = true
+            constraints.append(widthAnchor.constraint(equalToConstant: wrapper.width))
         }
+        commit ? Constraint.activate(constraints) : nil
+        return constraints
     }
 }

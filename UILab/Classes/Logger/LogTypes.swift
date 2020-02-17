@@ -8,32 +8,26 @@
 import Foundation
 
 internal struct ConstraintLog: Log {
-    internal enum Message: MessageAdvisable {
+    internal enum Message: MessagePolicy {
         var description: String {
             switch self {
             case .superviewNotFound:
                 return "superview could not be found"
             case .listened(let anchor, let assign1, let assign2):
                 return "listened log: \(anchor ?? "") \(assign1 ?? "") \(assign2 ?? "")"
-            case .display(let axises, let padding, let width, let height, let enableInsets):
+            case .display(let wrapper):
                 return """
-                axises: \(axises)
-                padding: \(String(describing: padding))"
-                width: \(width)
-                height: \(height)
-                enableInsets: \(enableInsets)
+                axises: \(wrapper.axises)
+                padding: \(String(describing: wrapper.padding))"
+                width: \(wrapper.width)
+                height: \(wrapper.height)
+                enableInsets: \(wrapper.enableInsets)
                 """
             }
         }
         case superviewNotFound
         case listened(Any?, Any?, Any?)
-        case display(
-            axises: Axises,
-            padding: Padding? = Padding.zero,
-            width: Constant = 0,
-            height: Constant = 0,
-            enableInsets: Bool = true
-        )
+        case display(wrapper: ConstraintWrapper)
     }
     
     var status: UILabLogger.LogStatus = .unknown
@@ -55,5 +49,5 @@ internal protocol Log: CustomStringConvertible {
     var status: UILabLogger.LogStatus { get set }
 }
 
-internal protocol MessageAdvisable: CustomStringConvertible {}
+internal protocol MessagePolicy: CustomStringConvertible {}
 

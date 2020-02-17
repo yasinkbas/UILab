@@ -8,50 +8,60 @@
 import Foundation
 
 extension UIView {
-    public func equalToSuper(with padding: Padding? = nil) {
-        if self.superview != nil {
-            activate(ConstraintWrapper(axises: Axises(superview), padding: padding, enableInsets: false)
-            )
-        }
-    }
-}
-
-extension UIView {    
-    public func equalToSuper(_ directions: ConstraintDirectionType...) -> Constraints {
+    public func equalToSuper(with padding: Padding? = nil, commit: Bool = true) -> Constraints {
         guard let superview = superview else {
             logger?.error(
                 ConstraintLog(
                     verboseName: self.verboseName,
-                    messages: [.superviewNotFound],
-                    constraint: nil
+                    messages: [
+                        .superviewNotFound
+                    ], constraint: nil
                 ), debug: debug
             )
             return []
         }
+        return activate(ConstraintWrapper(axises: Axises(superview), padding: padding, enableInsets: false), commit: commit)
+    }
+}
+
+extension UIView {    
+    public func equalToSuper(_ directions: ConstraintDirectionType..., commit: Bool = true) -> Constraints {
+        guard let superview = superview else {
+            logger?.error(
+                ConstraintLog(
+                    verboseName: self.verboseName,
+                    messages: [
+                        .superviewNotFound
+                    ], constraint: nil
+                ), debug: debug
+            )
+            return []
+        }
+        var constraints = Constraints()
         self.translatesAutoresizingMaskIntoConstraints = false
         directions.forEach{
             switch $0 {
             case .top(let inset):
-                self.topAnchor.constraint(equalTo: superview.topAnchor, constant: inset).isActive = true
+                constraints.append(self.topAnchor.constraint(equalTo: superview.topAnchor, constant: inset))
                 
             case.left(let inset):
-                self.leftAnchor.constraint(equalTo: superview.leftAnchor, constant: inset).isActive = true
+                constraints.append(self.leftAnchor.constraint(equalTo: superview.leftAnchor, constant: inset))
                 
             case .right(let inset):
-                self.rightAnchor.constraint(equalTo: superview.rightAnchor, constant: -inset).isActive = true
+                constraints.append(self.rightAnchor.constraint(equalTo: superview.rightAnchor, constant: -inset))
                 
             case .bottom(let inset):
-                self.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -inset).isActive = true
+                constraints.append(self.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -inset))
                 
             case .width:
-                self.widthAnchor.constraint(equalTo: superview.widthAnchor).isActive = true
+                constraints.append(self.widthAnchor.constraint(equalTo: superview.widthAnchor))
                 
             case .height:
-                self.heightAnchor.constraint(equalTo: superview.heightAnchor).isActive = true
+                constraints.append(self.heightAnchor.constraint(equalTo: superview.heightAnchor))
             }
         }
-        
-        return []
+        commit ? Constraint.activate(constraints) : nil
+        return constraints
     }
 }
 
