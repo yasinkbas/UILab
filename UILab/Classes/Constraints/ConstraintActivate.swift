@@ -8,54 +8,50 @@
 import UIKit
 
 extension UIView {
-    internal func activate(
-        axises: Axises,
-        padding: Padding? = Padding.zero,
-        width: Constant = 0,
-        height: Constant = 0,
-        enableInsets: Bool = true
-    ) {
+    internal func activate(_ wrapper: ConstraintWrapper) {
         logger?.notice(
             ConstraintLog(
                 verboseName: self.verboseName,
                 messages: [
-                    "axises: \(axises)",
-                    "padding: \(String(describing: padding))",
-                    "width: \(width)",
-                    "height: \(height)",
-                    "enableInsets: \(enableInsets)"
-                ],constraint: nil),
+                    .display(
+                        axises: wrapper.axises,
+                        padding: wrapper.padding,
+                        width: wrapper.width,
+                        height: wrapper.height,
+                        enableInsets: wrapper.enableInsets
+                    )
+            ],constraint: nil),
             debug: debug
         )
-        let padding = padding ?? Padding.zero
+        let padding = wrapper.padding ?? Padding.zero
         var topInset = Inset(0)
         var bottomInset = Inset(0)
         
         self.translatesAutoresizingMaskIntoConstraints = false
         
-        if #available(iOS 11, *), enableInsets {
+        if #available(iOS 11, *), wrapper.enableInsets {
             let insets = self.safeAreaInsets
             topInset = insets.top
             bottomInset = insets.bottom
         }
         
-        if let top = axises.top {
+        if let top = wrapper.axises.top {
             self.topAnchor.constraint(equalTo: top, constant: padding.top+topInset).isActive = true
         }
-        if let left = axises.left {
+        if let left = wrapper.axises.left {
             self.leftAnchor.constraint(equalTo: left, constant: padding.left).isActive = true
         }
-        if let right = axises.right {
+        if let right = wrapper.axises.right {
             rightAnchor.constraint(equalTo: right, constant: -padding.right).isActive = true
         }
-        if let bottom = axises.bottom {
+        if let bottom = wrapper.axises.bottom {
             bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom-bottomInset).isActive = true
         }
-        if height != 0 {
-            heightAnchor.constraint(equalToConstant: height).isActive = true
+        if wrapper.height != 0 {
+            heightAnchor.constraint(equalToConstant: wrapper.height).isActive = true
         }
-        if width != 0 {
-            widthAnchor.constraint(equalToConstant: width).isActive = true
+        if wrapper.width != 0 {
+            widthAnchor.constraint(equalToConstant: wrapper.width).isActive = true
         }
     }
 }

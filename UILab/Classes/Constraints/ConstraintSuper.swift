@@ -10,18 +10,24 @@ import Foundation
 extension UIView {
     public func equalToSuper(with padding: Padding? = nil) {
         if self.superview != nil {
-            activate(
-                axises: Axises(superview),
-                padding: padding,
-                enableInsets: false
+            activate(ConstraintWrapper(axises: Axises(superview), padding: padding, enableInsets: false)
             )
         }
     }
 }
 
 extension UIView {    
-    public func equalToSuper(_ directions: ConstraintDirectionType...) {
-        guard let superview = superview else { return }
+    public func equalToSuper(_ directions: ConstraintDirectionType...) -> Constraints {
+        guard let superview = superview else {
+            logger?.error(
+                ConstraintLog(
+                    verboseName: self.verboseName,
+                    messages: [.superviewNotFound],
+                    constraint: nil
+                ), debug: debug
+            )
+            return []
+        }
         self.translatesAutoresizingMaskIntoConstraints = false
         directions.forEach{
             switch $0 {
@@ -44,10 +50,12 @@ extension UIView {
                 self.heightAnchor.constraint(equalTo: superview.heightAnchor).isActive = true
             }
         }
+        
+        return []
     }
 }
 
-// TODO: write a type then extension them in a type
+// TODO: write a type that combines these types
 public protocol Constraintable { }
 
 extension UIView: Constraintable { }
