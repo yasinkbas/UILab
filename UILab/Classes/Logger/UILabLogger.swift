@@ -12,7 +12,7 @@ internal class UILabLogger {
         case notice = "✅"
         case warning = "⚠️"
         case error = "❗️"
-        case unknown = "none"
+        case unknown = "unknown"
     }
     
     internal func notice(_ log: Log) {
@@ -33,14 +33,10 @@ internal class UILabLogger {
     
     internal func commit(_ log: Log, type: LogStatus) {
         switch type {
-        case .notice:
-            notice(log)
-        case .warning:
-            warning(log)
-        case .error:
-            error(log)
-        case .unknown:
-            unknown(log)
+            case .notice: notice(log)
+            case .warning: warning(log)
+            case .error: error(log)
+            case .unknown: unknown(log)
         }
     }
     
@@ -48,7 +44,7 @@ internal class UILabLogger {
         if !debug { return }
         var log = log
         log.status = status
-
+        
         print("--------------")
         print(log.description)
         print()

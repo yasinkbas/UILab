@@ -47,7 +47,7 @@ extension UIView {
                 constraints.append(self.heightAnchor.constraint(equalTo: superview.heightAnchor))
             }
         }
-        commit ? Constraint.activate(constraints) : nil
+        constraints.commit = commit
         return constraints
     }
 }
