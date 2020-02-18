@@ -28,7 +28,7 @@ import UILab
 
 class ViewController: UIViewController {
     lazy var thinBarWidth: CGFloat = self.view.bounds.width / 2 - 10
-    lazy var thinBarHeight: CGFloat = 1
+    var thinBarHeight: CGFloat = 1
     
     // MARK: - set view objects basically
     lazy var titleLabel: UILabel = {

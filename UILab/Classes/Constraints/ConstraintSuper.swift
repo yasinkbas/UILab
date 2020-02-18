@@ -10,31 +10,18 @@ import Foundation
 extension UIView {
     public func equalToSuper(with padding: Padding? = nil, commit: Bool = true) -> Constraints {
         guard let superview = superview else {
-            logger?.error(
-                ConstraintLog(
-                    verboseName: self.verboseName,
-                    messages: [
-                        .superviewNotFound
-                    ], constraint: nil
-                ), debug: debug
-            )
+            ConstraintLog(verboseName: self.verboseName, messages: [.superviewNotFound], constraint: nil).commit(.error)
             return []
         }
-        return activate(ConstraintWrapper(axises: Axises(superview), padding: padding, enableInsets: false), commit: commit)
+        let constraints = activate(ConstraintWrapper(axises: Axises(superview), padding: padding, enableInsets: false), commit: commit)
+        return constraints
     }
 }
 
 extension UIView {    
     public func equalToSuper(_ directions: ConstraintDirectionType..., commit: Bool = true) -> Constraints {
         guard let superview = superview else {
-            logger?.error(
-                ConstraintLog(
-                    verboseName: self.verboseName,
-                    messages: [
-                        .superviewNotFound
-                    ], constraint: nil
-                ), debug: debug
-            )
+            ConstraintLog(verboseName: self.verboseName, messages: [.superviewNotFound], constraint: nil).commit(.error)
             return []
         }
         var constraints = Constraints()
@@ -60,7 +47,7 @@ extension UIView {
                 constraints.append(self.heightAnchor.constraint(equalTo: superview.heightAnchor))
             }
         }
-        commit ? Constraint.activate(constraints) : nil
+        constraints.commit = commit
         return constraints
     }
 }
