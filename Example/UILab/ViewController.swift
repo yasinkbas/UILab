@@ -106,7 +106,7 @@ class ViewController: UIViewController {
         
         let clicked = yellowViewHeightAnchor?.constant == to
         
-        UIView.animate(withDuration: 1) {
+        UIView.animate(withDuration: 0.75) {
             self.view.layoutIfNeeded()
             self.titleLabel.transform = clicked ?
                 CGAffineTransform(scaleX: 2, y: 2).concatenating(CGAffineTransform(translationX: 0, y: 100)) : .identity

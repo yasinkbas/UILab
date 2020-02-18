@@ -44,7 +44,6 @@ extension UIView {
             constraints.append(widthAnchor.constraint(equalToConstant: wrapper.width))
         }
 
-        
         constraints.commit = commit
         return constraints
     }

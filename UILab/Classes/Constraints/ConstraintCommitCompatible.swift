@@ -17,7 +17,15 @@ extension Array where Element == Constraint {
         }
         set(newValue) {
             objc_setAssociatedObject(self, &AssociatedKeys.commitState, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            newValue ? Constraint.activate(self) : self.forEach{ $0.isActive = false }
+            newValue ? activate() : deactivate()
         }
+    }
+    
+    internal func deactivate() {
+        self.forEach{ $0.isActive = false }
+    }
+    
+    internal func activate() {
+        Constraint.activate(self)
     }
 }
