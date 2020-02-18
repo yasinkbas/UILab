@@ -86,6 +86,7 @@ extension UIView {
                 setPoint(view, xInset, yInset, constraint: self.constraints.last)
             }
         }
+        
         constraints.commit = commit
         return constraints
     }
