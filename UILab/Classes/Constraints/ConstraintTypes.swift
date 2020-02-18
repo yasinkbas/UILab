@@ -78,7 +78,7 @@ public enum ConstraintType {
     case height             (Constant)
     case centerX            (XAxis, Inset = 0)
     case centerY            (YAxis, Inset = 0)
-    case center             (UIView, x: Inset = 0, y: Inset = 0)
+    case center             (View, x: Inset = 0, y: Inset = 0)
     case widthDimension     (Dimension, Multiple = 1, Inset = 0)
     case heightDimension    (Dimension, Multiple = 1, Inset = 0)
 }

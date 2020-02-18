@@ -9,14 +9,8 @@ import UIKit
 
 extension UIView {
     internal func activate(_ wrapper: ConstraintWrapper, commit: Bool = true) -> Constraints {
-        logger?.notice(
-            ConstraintLog(
-                verboseName: self.verboseName,
-                messages: [
-                    .display(wrapper: wrapper)
-            ],constraint: nil),
-            debug: debug
-        )
+        ConstraintLog(verboseName: self.verboseName, messages: [.display(wrapper: wrapper)], constraint: nil).commit(.notice)
+        
         let padding = wrapper.padding ?? Padding.zero
         var topInset = Inset(0)
         var bottomInset = Inset(0)

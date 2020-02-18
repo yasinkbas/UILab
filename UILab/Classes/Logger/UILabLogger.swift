@@ -15,23 +15,36 @@ internal class UILabLogger {
         case unknown = "none"
     }
     
-    internal func notice(_ log: Log, debug:Bool) {
-        perform(log, status: .notice, debug: debug)
+    internal func notice(_ log: Log) {
+        perform(log, status: .notice)
     }
     
-    internal func warning(_ log: Log, debug:Bool) {
-        perform(log, status: .warning, debug: debug)
+    internal func warning(_ log: Log) {
+        perform(log, status: .warning)
     }
     
-    internal func error(_ log: Log, debug:Bool) {
-        perform(log, status: .error, debug: debug)
+    internal func error(_ log: Log) {
+        perform(log, status: .error)
     }
     
-    internal func unknown(_ log: Log, debug:Bool) {
-        perform(log, status: .unknown, debug: debug)
+    internal func unknown(_ log: Log) {
+        perform(log, status: .unknown)
     }
     
-    private func perform(_ log: Log, status: LogStatus, debug: Bool) {
+    internal func commit(_ log: Log, type: LogStatus) {
+        switch type {
+        case .notice:
+            notice(log)
+        case .warning:
+            warning(log)
+        case .error:
+            error(log)
+        case .unknown:
+            unknown(log)
+        }
+    }
+    
+    private func perform(_ log: Log, status: LogStatus) {
         if !debug { return }
         var log = log
         log.status = status

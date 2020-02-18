@@ -7,7 +7,8 @@
 
 import UIKit
 
-extension UIView {    
+extension UIView {
+    @discardableResult
     public func set(_ constraintList: ConstraintType..., commit: Bool = true) -> Constraints {
         self.translatesAutoresizingMaskIntoConstraints = false
         var _anchor: Any? = nil
@@ -19,15 +20,8 @@ extension UIView {
             _assign1 = assign1
             _assign2 = assign2
             
-            logger?.notice(
-                ConstraintLog(
-                    verboseName: self.verboseName,
-                    messages: [
-                        .listened(anchor, assign1, assign2)
-                    ],
-                    constraint: constraint),
-                debug: debug
-            )
+            ConstraintLog(verboseName: self.verboseName, messages: [.listened(anchor, assign1, assign2)], constraint: constraint)
+                .commit(.notice)
         }
         
         var constraints = Constraints()
