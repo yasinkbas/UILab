@@ -22,7 +22,7 @@
 //
 //
 // (6) UILab get: `<view>.get(.<which anchor>)`
-//Getting constraint with specific anchor. it returns array<NSLayoutConstraint> so we got first but you should be careful which constraint you get.
+// Getting constraint with specific anchor. it returns array<NSLayoutConstraint> so we got first but you should be careful which constraint you get.
 
 import UILab
 
