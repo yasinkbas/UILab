@@ -8,18 +8,20 @@
 import Foundation
 
 extension UIView {
-    public func equalToSuper(with padding: Padding? = nil, commit: Bool = true) -> Constraints {
+    @discardableResult
+    public func equalToSuper(with padding: Padding? = nil, commit: Bool = true, priority: UILayoutPriority = UILayoutPriority(1000)) -> Constraints {
         guard let superview = superview else {
             ConstraintLog(verboseName: self.verboseName, messages: [.superviewNotFound], constraint: nil).commit(.error)
             return []
         }
-        let constraints = activate(ConstraintWrapper(axises: Axises(superview), padding: padding, enableInsets: false), commit: commit)
+        let constraints = activate(ConstraintWrapper(axises: Axises(superview), padding: padding, enableInsets: false), commit: commit, priority: priority)
         return constraints
     }
 }
 
-extension UIView {    
-    public func equalToSuper(_ directions: ConstraintDirectionType..., commit: Bool = true) -> Constraints {
+extension UIView {
+    @discardableResult
+    public func equalToSuper(_ directions: ConstraintDirectionType..., commit: Bool = true, priority: UILayoutPriority = UILayoutPriority(1000)) -> Constraints {
         guard let superview = superview else {
             ConstraintLog(verboseName: self.verboseName, messages: [.superviewNotFound], constraint: nil).commit(.error)
             return []
@@ -48,6 +50,7 @@ extension UIView {
             }
         }
         
+        constraints.priority = priority
         constraints.commit = commit
         return constraints
     }
