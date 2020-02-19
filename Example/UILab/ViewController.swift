@@ -77,7 +77,7 @@ class ViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         
         view.addSubview(yellowView)
-        yellowView.set(.left(view.left), priority: UILayoutPriority(rawValue: 500))
+        yellowView.set(.left(view.left), priority: 500)
         yellowView.set(.right(view.right))
         yellowView.set(.top(view.top))
         yellowView.set(.height(80))

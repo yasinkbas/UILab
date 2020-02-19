@@ -9,7 +9,7 @@ import Foundation
 
 extension UIView {
     @discardableResult
-    public func equalToSuper(with padding: Padding? = nil, commit: Bool = true, priority: UILayoutPriority = UILayoutPriority(1000)) -> Constraints {
+    public func equalToSuper(with padding: Padding? = nil, commit: Bool = true, priority: Float = 1000) -> Constraints {
         guard let superview = superview else {
             ConstraintLog(verboseName: self.verboseName, messages: [.superviewNotFound], constraint: nil).commit(.error)
             return []
@@ -21,7 +21,7 @@ extension UIView {
 
 extension UIView {
     @discardableResult
-    public func equalToSuper(_ directions: ConstraintDirectionType..., commit: Bool = true, priority: UILayoutPriority = UILayoutPriority(1000)) -> Constraints {
+    public func equalToSuper(_ directions: ConstraintDirectionType..., commit: Bool = true, priority: Float = 1000) -> Constraints {
         guard let superview = superview else {
             ConstraintLog(verboseName: self.verboseName, messages: [.superviewNotFound], constraint: nil).commit(.error)
             return []

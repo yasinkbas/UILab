@@ -31,17 +31,17 @@ extension Array where Element == Constraint {
 }
 
 extension Array where Element == Constraint {
-    public var priority: UILayoutPriority {
+    public var priority: Float {
         get {
-            guard let value = objc_getAssociatedObject(self, &AssociatedKeys.priorityState) as? UILayoutPriority else {
-                return self.first?.priority ?? UILayoutPriority(rawValue: 1000)
+            guard let value = objc_getAssociatedObject(self, &AssociatedKeys.priorityState) as? Float else {
+                return self.first?.priority.rawValue ?? 1000
             }
             return value
         }
         
         set(newValue) {
             objc_setAssociatedObject(self, &AssociatedKeys.priorityState, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            self.forEach { $0.priority = newValue }
+            self.forEach { $0.priority = UILayoutPriority(newValue) }
         }
     }    
 }

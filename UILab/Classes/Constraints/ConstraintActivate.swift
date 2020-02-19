@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView {
     @discardableResult
-    internal func activate(_ wrapper: ConstraintWrapper, commit: Bool = true, priority: UILayoutPriority ) -> Constraints {
+    internal func activate(_ wrapper: ConstraintWrapper, commit: Bool = true, priority: Float = 1000 ) -> Constraints {
         ConstraintLog(verboseName: self.verboseName, messages: [.display(wrapper: wrapper)], constraint: nil).commit(.notice)
         
         let padding = wrapper.padding ?? .zero

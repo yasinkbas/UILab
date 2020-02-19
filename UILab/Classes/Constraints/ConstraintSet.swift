@@ -9,11 +9,10 @@ import UIKit
 
 extension UIView {
     @discardableResult
-    public func set(_ constraintList: ConstraintType..., commit: Bool = true, priority: UILayoutPriority = UILayoutPriority(1000)) -> Constraints {
+    public func set(_ constraintList: ConstraintType..., commit: Bool = true, priority: Float = 1000) -> Constraints {
         self.translatesAutoresizingMaskIntoConstraints = false
         var constraints = Array(constraintList.map { $0.constraint(self)}.joined())
         constraints.forEach { ConstraintLog(verboseName: self.verboseName, messages: [.noMessage], constraint: $0).commit(.notice) }
-        
         constraints.priority = priority
         constraints.commit = commit
         return constraints
