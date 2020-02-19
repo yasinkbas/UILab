@@ -7,8 +7,9 @@
 
 import UIKit
 
-extension UIView {
-    struct AssociatedKeys {
-        static var verboseState: UInt8 = 0
-    }
+struct AssociatedKeys {
+    static var verboseState:    UInt8 = 0
+    static var commitState:     UInt8 = 0
+    static var priorityState:   UInt8 = 0
 }
+

@@ -20,7 +20,7 @@ extension UIView {
     public var centerX:         XAxis       { return self.centerXAnchor }
     
     public var superCenterY:    YAxis?      { return superview?.centerYAnchor }
-    public var superCenterX:    XAxis?      { return superview!.centerXAnchor }
+    public var superCenterX:    XAxis?      { return superview?.centerXAnchor }
     public var superTop:        YAxis?      { return superview?.top }
     public var superLeft:       XAxis?      { return superview?.left }
     public var superLeading:    XAxis?      { return superview?.leading }
