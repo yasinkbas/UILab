@@ -12,7 +12,7 @@ internal struct ConstraintLog: Log {
         var description: String {
             switch self {
             case .superviewNotFound:
-                return "superview could not be found"
+                return "the view has no superview"
                 
             case .listened(let anchor, let assign1, let assign2):
                 return "listened log: \(anchor ?? "") \(assign1 ?? "") \(assign2 ?? "")"

@@ -8,6 +8,7 @@
 import Foundation
 
 extension UIView {
+    @discardableResult
     public func equalToSuper(with padding: Padding? = nil, commit: Bool = true) -> Constraints {
         guard let superview = superview else {
             ConstraintLog(verboseName: self.verboseName, messages: [.superviewNotFound], constraint: nil).commit(.error)
@@ -18,7 +19,8 @@ extension UIView {
     }
 }
 
-extension UIView {    
+extension UIView {
+    @discardableResult
     public func equalToSuper(_ directions: ConstraintDirectionType..., commit: Bool = true) -> Constraints {
         guard let superview = superview else {
             ConstraintLog(verboseName: self.verboseName, messages: [.superviewNotFound], constraint: nil).commit(.error)
