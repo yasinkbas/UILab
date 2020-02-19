@@ -81,6 +81,31 @@ public enum ConstraintType {
     case center             (View, x: Inset = 0, y: Inset = 0)
     case widthDimension     (Dimension, Multiple = 1, Inset = 0)
     case heightDimension    (Dimension, Multiple = 1, Inset = 0)
+    
+    
+    func constraint(_ view: UIView) -> Constraints{
+        switch self {
+        case .left(let anchor, let inset):          return [view.left.constraint(equalTo: anchor, constant: inset)]
+        case .leftOf(let anchorView, let inset):    return [view.left.constraint(equalTo: anchorView.left, constant: inset)]
+        case .right(let anchor, let inset):         return [view.right.constraint(equalTo: anchor, constant: -inset)]
+        case .top(let anchor, let inset):           return [view.top.constraint(equalTo: anchor, constant: inset)]
+        case .bottom(let anchor, let inset):        return [view.bottom.constraint(equalTo: anchor, constant: -inset)]
+        case .leading(let anchor, let inset):       return [view.leading.constraint(equalTo: anchor, constant: inset)]
+        case .trailing(let anchor, let inset):      return [view.trailing.constraint(equalTo: anchor, constant: inset)]
+        case .width(let constant):                  return [view.width.constraint(equalToConstant: constant)]
+        case .height(let constant):                 return [view.height.constraint(equalToConstant: constant)]
+        case .centerX(let anchor, let inset):       return [view.centerX.constraint(equalTo: anchor, constant: inset)]
+        case .centerY(let anchor, let inset):       return [view.centerY.constraint(equalTo: anchor, constant: inset)]
+        
+        case .widthDimension(let dimension, let multiple, let inset):
+            return [view.width.constraint(equalTo: dimension, multiplier: multiple, constant: inset)]
+        case .heightDimension(let dimension, let multiple, let inset):
+            return [view.height.constraint(equalTo: dimension, multiplier: multiple, constant: inset)]
+        case .center(let anchorView, x: let xInset, y: let yInset):
+            return [view.centerX.constraint(equalTo: anchorView.centerX, constant: xInset),
+                    view.centerY.constraint(equalTo: anchorView.centerY, constant: yInset)]
+        }
+    }
 }
 
 public enum ConstraintDirectionType {

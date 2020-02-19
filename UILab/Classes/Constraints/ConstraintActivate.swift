@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView {
     @discardableResult
-    internal func activate(_ wrapper: ConstraintWrapper, commit: Bool = true) -> Constraints {
+    internal func activate(_ wrapper: ConstraintWrapper, commit: Bool = true, priority: UILayoutPriority ) -> Constraints {
         ConstraintLog(verboseName: self.verboseName, messages: [.display(wrapper: wrapper)], constraint: nil).commit(.notice)
         
         let padding = wrapper.padding ?? .zero
@@ -47,7 +47,8 @@ extension UIView {
         if wrapper.width != 0 {
             constraints.append(widthAnchor.constraint(equalToConstant: wrapper.width))
         }
-
+        
+        constraints.priority = priority
         constraints.commit = commit
         return constraints
     }

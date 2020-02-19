@@ -77,7 +77,10 @@ class ViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         
         view.addSubview(yellowView)
-        yellowView.set(.left(view.left), .right(view.right), .top(view.top), .height(80))
+        yellowView.set(.left(view.left), priority: UILayoutPriority(rawValue: 500))
+        yellowView.set(.right(view.right))
+        yellowView.set(.top(view.top))
+        yellowView.set(.height(80))
         view.addSubview(titleLabel)
         titleLabel.set(.bottom(yellowView.bottom, 8), .left(yellowView.left), .right(yellowView.right))
         view.addSubview(clickButton)

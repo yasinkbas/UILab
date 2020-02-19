@@ -11,25 +11,27 @@ internal struct ConstraintLog: Log {
     internal enum Message: MessagePolicy {
         var description: String {
             switch self {
-            case .superviewNotFound:
-                return "the view has no superview"
-                
-            case .listened(let anchor, let assign1, let assign2):
-                return "listened log: \(anchor ?? "") \(assign1 ?? "") \(assign2 ?? "")"
-                
-            case .display(let wrapper):
-                return """
-                axises: \(wrapper.axises)
-                padding: \(String(describing: wrapper.padding))"
-                width: \(wrapper.width)
-                height: \(wrapper.height)
-                enableInsets: \(wrapper.enableInsets)
-                """
+            case .superviewNotFound:                                return "the view has no superview"
+            case .noMessage:                                        return "No message"
+            case .listened(let anchor, let assign1, let assign2):   return "listened log: \(anchor ?? "") \(assign1 ?? "") \(assign2 ?? "")"
+            case .display(let wrapper):                             return displayMessage(wrapper)
             }
         }
+        
         case superviewNotFound
         case listened(Any?, Any?, Any?)
+        case noMessage
         case display(wrapper: ConstraintWrapper)
+        
+        func displayMessage(_ wrapper: ConstraintWrapper) -> String {
+            return """
+            axises: \(wrapper.axises)
+            padding: \(String(describing: wrapper.padding))"
+            width: \(wrapper.width)
+            height: \(wrapper.height)
+            enableInsets: \(wrapper.enableInsets)
+            """
+        }
     }
     
     var status: UILabLogger.LogStatus = .unknown
