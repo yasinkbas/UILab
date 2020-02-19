@@ -13,6 +13,7 @@ extension UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         var constraints = Array(constraintList.map { $0.constraint(self)}.joined())
         constraints.forEach { ConstraintLog(verboseName: self.verboseName, messages: [.noMessage], constraint: $0).commit(.notice) }
+        
         constraints.priority = priority
         constraints.commit = commit
         return constraints
