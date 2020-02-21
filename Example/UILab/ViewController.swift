@@ -75,12 +75,13 @@ class ViewController: UIViewController {
     override func loadView() {
         super.loadView()
         view.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
-        
+    
         view.addSubview(yellowView)
         yellowView.set(.left(view.left), priority: 500)
         yellowView.set(.right(view.right))
         yellowView.set(.top(view.top))
         yellowView.set(.height(80))
+        
         view.addSubview(titleLabel)
         titleLabel.set(.bottom(yellowView.bottom, 8), .left(yellowView.left), .right(yellowView.right))
         view.addSubview(clickButton)
@@ -101,11 +102,18 @@ class ViewController: UIViewController {
         yellowViewHeightAnchor?.constant = yellowViewHeightAnchor?.constant == to ? 80 : to
         
         let clicked = yellowViewHeightAnchor?.constant == to
-        
         UIView.animate(withDuration: 0.75) {
             self.view.layoutIfNeeded()
-            self.titleLabel.transform = clicked ?
-                CGAffineTransform(scaleX: 2, y: 2).concatenating(CGAffineTransform(translationX: 0, y: 100)) : .identity
+            if clicked {
+                self.titleLabel.transform = CGAffineTransform(scaleX: 2, y: 2).concatenating(CGAffineTransform(translationX: 0, y: 100))
+                if #available(iOS 11, *) {
+                    self.yellowView.layer.cornerRadius = self.yellowView.bounds.width / 5
+                    self.yellowView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+                }
+            } else {
+                self.titleLabel.transform = .identity
+                self.yellowView.layer.cornerRadius = 0
+            }
         }
         
         UIView.transition(with: titleLabel, duration: 0.2, options: .transitionFlipFromTop, animations: {
@@ -113,23 +121,8 @@ class ViewController: UIViewController {
         })
         
         UIView.transition(with: clickButton, duration: 0.2, options: .transitionFlipFromTop, animations: {
-            clicked ?
-                self.clickButton.setTitleColor(UIColor.black, for: .normal) :
-                self.clickButton.setTitleColor(UIColor.white, for: .normal)
+            let color = clicked ? UIColor.black : UIColor.white
+            self.clickButton.setTitleColor(color, for: .normal)
         })
-        
-        if clicked {
-            self.yellowView.roundCorners([.bottomLeft, .bottomRight], radius: self.yellowView.bounds.width / 5)
-        }
-    }
-}
-
-// MARK: - extension
-extension UIView {
-    func roundCorners(_ corners:UIRectCorner, radius: CGFloat) {
-        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        self.layer.mask = mask
     }
 }
