@@ -105,9 +105,9 @@ public enum ConstraintType {
     case centerYOf          (View, Inset = 0)
     case center             (View, x: Inset = 0, y: Inset = 0)
     case widthMultiple      (Dimension, Multiple = 1, Inset = 0)
-    case heightMultiple    (Dimension, Multiple = 1, Inset = 0)
+    case heightMultiple     (Dimension, Multiple = 1, Inset = 0)
     
-    func constraint(_ view: UIView) -> Constraints{
+    func constraint(_ view: UIView) -> Constraints {
         switch self {
         case .left(let anchor, let inset):              return [view.left.constraint(equalTo: anchor, constant: inset)]
         case .leftOf(let anchorView, let inset):        return [view.left.constraint(equalTo: anchorView.left, constant: inset)]
