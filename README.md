@@ -9,6 +9,10 @@ Simple Auto Layout provider, you can define your constraints on a line.
 ## TODO
 - [ ] Add multiple support
 - [ ] Write legible README
+- - [ ] Set
+- - [ ] Get
+- - [ ] EqualToSuper
+- - [ ] Constraints on table
 - [ ] Write documentation
 
 
@@ -28,6 +32,13 @@ v.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -32).isActi
 v.set(.left(self.view.left, 16), .top(self.view.top, 32), .right(self.view.right, 16), .bottom(self.view.bottom, 32))
 ```
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+### Set
+
+
+### Get
+
+###
 
 ### Supported types and equivalent on NSLayoutConstraint
 - {?} = ? is default value you don't have to write if you prefer default
