@@ -17,5 +17,9 @@ extension UIView {
         constraints.commit = commit
         return constraints
     }
+    
+    public func set(constrains: [ConstraintType]) {
+        constrains.forEach { set($0) }
+    }
 }
 
