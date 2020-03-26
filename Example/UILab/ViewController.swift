@@ -22,7 +22,7 @@
 //
 //
 // (6) UILab get: `<view>.get(.<which anchor>)`
-// Getting constraint with specific anchor. it returns array<NSLayoutConstraint> so we got first but you should be careful which constraint you get.
+// Getting constraint with specific anchor. it returns array<NSLayoutConstraint> so we got with '.first' so you should be careful which constraint you get.
 
 import UILab
 
@@ -77,13 +77,16 @@ class ViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
     
         view.addSubview(yellowView)
+        // if you like multiple line
         yellowView.set(.left(view.left), priority: 500)
         yellowView.set(.right(view.right))
         yellowView.set(.top(view.top))
         yellowView.set(.height(80))
         
         view.addSubview(titleLabel)
+        // or single line
         titleLabel.set(.bottom(yellowView.bottom, 8), .left(yellowView.left), .right(yellowView.right))
+        
         view.addSubview(clickButton)
         clickButton.set(.center(view), .width(200), .height(50))
         view.addSubview(thinWhiteBar)
@@ -102,14 +105,17 @@ class ViewController: UIViewController {
         yellowViewHeightAnchor?.constant = yellowViewHeightAnchor?.constant == to ? 80 : to
         
         let clicked = yellowViewHeightAnchor?.constant == to
+        
         UIView.animate(withDuration: 0.75) {
             self.view.layoutIfNeeded()
             if clicked {
                 self.titleLabel.transform = CGAffineTransform(scaleX: 2, y: 2).concatenating(CGAffineTransform(translationX: 0, y: 100))
+                
                 if #available(iOS 11, *) {
                     self.yellowView.layer.cornerRadius = self.yellowView.bounds.width / 5
                     self.yellowView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
                 }
+                
             } else {
                 self.titleLabel.transform = .identity
                 self.yellowView.layer.cornerRadius = 0
