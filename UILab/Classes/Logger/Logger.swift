@@ -41,7 +41,9 @@ internal class UILabLogger {
     }
     
     private func perform(_ log: Log, status: LogStatus) {
-        if !debug { return }
+        if debug == .none ||
+            debug == .import &&
+            status == .notice { return }
         var log = log
         log.status = status
         

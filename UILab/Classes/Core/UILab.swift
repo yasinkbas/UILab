@@ -7,9 +7,15 @@
 
 import Foundation
 
+public enum DebugMonitoringType {
+    case verbose
+    case `import`
+    case none
+}
+
 public class UILab {
     public class Settings {
-        public static var debug: Bool = false
+        public static var debug: DebugMonitoringType = .none
     }
 }
 

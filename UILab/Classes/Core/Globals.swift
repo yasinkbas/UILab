@@ -8,11 +8,8 @@ import Foundation
 
 var debug = UILab.Settings.debug {
     didSet {
-        logger = debug ? UILabLogger() : nil
+        logger = debug == .none ? nil : UILabLogger()
     }
 }
-var logger: UILabLogger? = UILabLogger()
 
-struct Constants {
-    static var debugKey = "UILab_debug"
-}
+var logger: UILabLogger? = UILabLogger()
