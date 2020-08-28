@@ -11,7 +11,7 @@ extension UIView {
     public var verboseName: String {
         get {
             guard let value = objc_getAssociatedObject(self, &AssociatedKeys.verboseState) as? String else {
-                return "Unknown Object"
+                return .unknown
             }
             return value
         }

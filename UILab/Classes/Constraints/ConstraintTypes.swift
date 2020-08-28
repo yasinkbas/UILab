@@ -50,6 +50,16 @@ public struct Axises {
     }
 }
 
+
+public enum ConstraintDirection {
+    case top                (Inset)
+    case left               (Inset)
+    case bottom             (Inset)
+    case right              (Inset)
+    case width
+    case height
+}
+
 internal struct ConstraintWrapper {
     let axises: Axises
     let padding: Padding?
@@ -259,16 +269,6 @@ public enum ConstraintType {
         case let .centerYSpaceBelowgte(anchor, multiplier):
             guard #available(iOS 11.0, *) else { fatalError() }
             return [view.centerY.constraint(greaterThanOrEqualToSystemSpacingBelow: anchor, multiplier: multiplier)]
-            
         }
     }
-}
-
-public enum ConstraintDirectionType {
-    case top                (Inset)
-    case left               (Inset)
-    case bottom             (Inset)
-    case right              (Inset)
-    case width
-    case height
 }
