@@ -8,7 +8,7 @@ import Foundation
 
 var debug = UILab.Settings.debug {
     didSet {
-        logger = (debug == .none ? nil : UILabLogger())
+        logger = debug == .none ? nil : UILabLogger()
     }
 }
 
