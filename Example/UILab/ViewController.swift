@@ -5,25 +5,6 @@
 //  Copyright (c) 2020 yasinkbas. All rights reserved.
 //
 
-// Explanation //
-// (1) UILab verboseName:
-//it just needed for readable log. Given verbose name will be shown above log box.
-//
-// (2) UILab set: `view.set(.<which anchor>)`
-//
-//
-// (3) UILab set: `view.set(.<which anchor>)`
-//
-//
-// (4) UILab set: `view.set(.<which anchor>)`
-//
-//
-// (5) UILab set: `view.set(.<which anchor>)`
-//
-//
-// (6) UILab get: `<view>.get(.<which anchor>)`
-// Getting constraint with specific anchor. it returns array<NSLayoutConstraint> so we got with '.first' so you should be careful which constraint you get.
-
 import UILab
 
 class ViewController: UIViewController {
@@ -37,7 +18,7 @@ class ViewController: UIViewController {
         label.font = label.font.withSize(20)
         label.textAlignment = .center
         label.text = "UILab"
-        label.verboseName = "my_title_label" // (1)
+        label.verboseName = "my_title_label"
         return label
     }()
     
@@ -49,7 +30,7 @@ class ViewController: UIViewController {
         view.layer.shadowOffset = .zero
         view.layer.shadowRadius = 10
         view.layer.shouldRasterize = false
-        view.verboseName = "my_yellow_view" // (1)
+        view.verboseName = "my_yellow_view"
         return view
     }()
     
@@ -59,15 +40,15 @@ class ViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = UIColor.clear
         button.layer.cornerRadius = 10
-        button.verboseName = "my_yellow_button" // (1)
-        button.addTarget(self, action: #selector(clickedButton(_:)), for: .touchUpInside)
+        button.verboseName = "my_yellow_button"
+        button.addTarget(self, action: #selector(clickedButton), for: .touchUpInside)
         return button
     }()
     
     lazy var thinWhiteBar: UIView = {
         let bar = UIView()
         bar.backgroundColor = UIColor.white
-        bar.verboseName = "my_thin_white_bar" // (1)
+        bar.verboseName = "my_thin_white_bar"
         return bar
     }()
     
@@ -89,8 +70,11 @@ class ViewController: UIViewController {
         
         view.addSubview(clickButton)
         clickButton.set(.center(view), .width(200), .height(50))
+        
+        // use with subscript syntax
         view.addSubview(thinWhiteBar)
-        thinWhiteBar.set(.top(yellowView.bottom, 16), .width(thinBarWidth), .height(thinBarHeight), .centerX(yellowView.centerX))
+        var constraints = thinWhiteBar[.top(yellowView.bottom, 16), .width(thinBarWidth), .height(thinBarHeight), .centerX(yellowView.centerX)] // commit false as default
+        constraints.commit = true
     }
     
     // MARK: - button target
