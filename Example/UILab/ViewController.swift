@@ -5,39 +5,20 @@
 //  Copyright (c) 2020 yasinkbas. All rights reserved.
 //
 
-// Explanation //
-// (1) UILab verboseName:
-//it just needed for readable log. Given verbose name will be shown above log box.
-//
-// (2) UILab set: `view.set(.<which anchor>)`
-//
-//
-// (3) UILab set: `view.set(.<which anchor>)`
-//
-//
-// (4) UILab set: `view.set(.<which anchor>)`
-//
-//
-// (5) UILab set: `view.set(.<which anchor>)`
-//
-//
-// (6) UILab get: `<view>.get(.<which anchor>)`
-// Getting constraint with specific anchor. it returns array<NSLayoutConstraint> so we got with '.first' so you should be careful which constraint you get.
-
 import UILab
 
 class ViewController: UIViewController {
     lazy var thinBarWidth: CGFloat = self.view.bounds.width / 2 - 10
     var thinBarHeight: CGFloat = 1
     
-    // MARK: - set view objects basically
+    // MARK: - View Elements
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.black
         label.font = label.font.withSize(20)
         label.textAlignment = .center
         label.text = "UILab"
-        label.verboseName = "my_title_label" // (1)
+        label.verboseName = "my_title_label"
         return label
     }()
     
@@ -49,7 +30,7 @@ class ViewController: UIViewController {
         view.layer.shadowOffset = .zero
         view.layer.shadowRadius = 10
         view.layer.shouldRasterize = false
-        view.verboseName = "my_yellow_view" // (1)
+        view.verboseName = "my_yellow_view"
         return view
     }()
     
@@ -59,7 +40,7 @@ class ViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = UIColor.clear
         button.layer.cornerRadius = 10
-        button.verboseName = "my_yellow_button" // (1)
+        button.verboseName = "my_yellow_button"
         button.addTarget(self, action: #selector(clickedButton(_:)), for: .touchUpInside)
         return button
     }()
@@ -67,33 +48,36 @@ class ViewController: UIViewController {
     lazy var thinWhiteBar: UIView = {
         let bar = UIView()
         bar.backgroundColor = UIColor.white
-        bar.verboseName = "my_thin_white_bar" // (1)
+        bar.verboseName = "my_thin_white_bar"
         return bar
     }()
     
-    // MARK: - loadView
+    // MARK: - View Lifecycles
     override func loadView() {
         super.loadView()
         view.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
     
         view.addSubview(yellowView)
-        // if you like multiple line
+        // multiple line
         yellowView.set(.left(view.left), priority: 500)
         yellowView.set(.right(view.right))
         yellowView.set(.top(view.top))
         yellowView.set(.height(80))
         
         view.addSubview(titleLabel)
-        // or single line
+        // single line
         titleLabel.set(.bottom(yellowView.bottom, 8), .left(yellowView.left), .right(yellowView.right))
         
         view.addSubview(clickButton)
         clickButton.set(.center(view), .width(200), .height(50))
+        
+        // with subscript syntax
         view.addSubview(thinWhiteBar)
-        thinWhiteBar.set(.top(yellowView.bottom, 16), .width(thinBarWidth), .height(thinBarHeight), .centerX(yellowView.centerX))
+        var constraints = thinWhiteBar[.top(yellowView.bottom, 16), .width(thinBarWidth), .height(thinBarHeight), .centerX(yellowView.centerX)] // commit false as default
+        constraints.commit = true
     }
     
-    // MARK: - button target
+    // MARK: - Actions
     @objc
     func clickedButton(_ sender: UIButton) {
         performAnimation()
