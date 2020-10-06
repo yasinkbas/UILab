@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'UILab'
-  s.version          = '0.2.4'
+  s.version          = '0.3.0'
   s.summary          = 'Make your constraints simple.'
   s.homepage         = 'https://github.com/yasinkbas/UILab'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
