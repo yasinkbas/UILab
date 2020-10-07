@@ -67,13 +67,13 @@ class ViewController: UIViewController {
         view.addSubview(titleLabel)
         // single line
         titleLabel.set(.bottom(yellowView.bottom, 8), .left(yellowView.left), .right(yellowView.right))
-        
         view.addSubview(clickButton)
         clickButton.set(.center(view), .width(200), .height(50))
         
         // with subscript syntax
         view.addSubview(thinWhiteBar)
-        thinWhiteBar.set(.top(yellowView.bottom, 16), .width(thinBarWidth), .height(thinBarHeight), .centerX(yellowView.centerX))
+        var thinWhiteBarConstraints = thinWhiteBar[.top(yellowView.bottom, 16), .width(thinBarWidth), .height(thinBarHeight), .centerX(yellowView.centerX)]
+        thinWhiteBarConstraints.commit = true
     }
     
     // MARK: - Actions
