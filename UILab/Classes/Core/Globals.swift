@@ -6,7 +6,7 @@
 //
 import Foundation
 
-var debug = UILab.Settings.debug {
+var debug = UILab.Settings.debugMonitoringType {
     didSet {
         logger = debug == .none ? nil : UILabLogger()
     }
