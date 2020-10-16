@@ -15,7 +15,7 @@ public enum DebugMonitoringType {
 
 public class UILab {
     public class Settings {
-        public static var debug: DebugMonitoringType = .none
+        public static var debugMonitoringType: DebugMonitoringType = .none
     }
 }
 
