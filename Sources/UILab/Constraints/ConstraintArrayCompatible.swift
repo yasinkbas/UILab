@@ -5,7 +5,7 @@
 //  Using Swift 5.0
 //
 
-import Foundation
+import UIKit
 
 extension Array where Element == Constraint {
     public var commit: Bool {

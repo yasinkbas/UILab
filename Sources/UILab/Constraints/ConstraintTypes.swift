@@ -5,7 +5,7 @@
 //  Using Swift 5.0
 //
 
-import Foundation
+import UIKit
 
 public struct Padding {
     static var zero: Padding {
