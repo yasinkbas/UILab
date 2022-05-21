@@ -23,6 +23,11 @@ extension UIView {
         return Array(constraints.map { set($0, commit: commit, priority: priority) }.joined())
     }
     
+    @discardableResult
+    public func set(commit: Bool = true, priority: Float = 1000, @ConstraintBuilder constraints: () -> [ConstraintType]) -> Constraints {
+        set(constraints: constraints(), commit: commit, priority: priority)
+    }
+    
     public subscript(_ constraintList: ConstraintType...) -> Constraints {
         self.set(constraints: constraintList, commit: false, priority: 1000)
     }
