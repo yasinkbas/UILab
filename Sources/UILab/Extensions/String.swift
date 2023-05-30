@@ -8,5 +8,5 @@
 import Foundation
 
 extension String {
-    static var unknown: String = "Unknown"
+  static var unknown: String = "Unknown"
 }

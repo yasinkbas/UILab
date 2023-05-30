@@ -7,14 +7,13 @@
 
 import UIKit
 
-public typealias XAxis          = NSLayoutXAxisAnchor
-public typealias YAxis          = NSLayoutYAxisAnchor
-public typealias Inset          = CGFloat
-public typealias Multiple       = CGFloat
-public typealias Constant       = CGFloat
-public typealias Constraint     = NSLayoutConstraint
-public typealias Constraints    = [NSLayoutConstraint]
-public typealias Attribute      = NSLayoutConstraint.Attribute
-public typealias Dimension      = NSLayoutDimension
-public typealias View           = UIView
-
+public typealias XAxis = NSLayoutXAxisAnchor
+public typealias YAxis = NSLayoutYAxisAnchor
+public typealias Inset = CGFloat
+public typealias Multiple = CGFloat
+public typealias Constant = CGFloat
+public typealias Constraint = NSLayoutConstraint
+public typealias Constraints = [NSLayoutConstraint]
+public typealias Attribute = NSLayoutConstraint.Attribute
+public typealias Dimension = NSLayoutDimension
+public typealias View = UIView
