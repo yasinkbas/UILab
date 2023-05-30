@@ -8,8 +8,7 @@
 import Foundation
 
 internal protocol Log: CustomStringConvertible {
-    var status: UILabLogger.LogStatus { get set }
+  var status: UILabLogger.LogStatus { get set }
 }
 
 internal protocol MessagePolicy: CustomStringConvertible {}
-

@@ -1,6 +1,4 @@
-import XCTest
 @testable import UILab
+import XCTest
 
-final class UILabTests: XCTestCase {
-    
-}
+final class UILabTests: XCTestCase {}

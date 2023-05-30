@@ -8,15 +8,13 @@
 import Foundation
 
 public enum DebugMonitoringType {
-    case verbose
-    case `import`
-    case none
+  case verbose
+  case `import`
+  case none
 }
 
-public class UILab {
-    public class Settings {
-        public static var debugMonitoringType: DebugMonitoringType = .none
-    }
+public enum UILab {
+  public enum Settings {
+    public static var debugMonitoringType: DebugMonitoringType = .none
+  }
 }
-
-

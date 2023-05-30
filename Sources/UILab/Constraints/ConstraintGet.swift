@@ -7,10 +7,10 @@
 
 import UIKit
 
-extension UIView {
-    public func get(_ attribute: Attribute) -> Constraints {
-        var constraints = Constraints()
-        self.constraints.forEach { $0.firstAttribute == attribute ? constraints.append($0) : nil }
-        return constraints
-    }
+public extension UIView {
+  func get(_ attribute: Attribute) -> Constraints {
+    var constraints = Constraints()
+    self.constraints.forEach { $0.firstAttribute == attribute ? constraints.append($0) : nil }
+    return constraints
+  }
 }

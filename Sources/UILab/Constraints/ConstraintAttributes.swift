@@ -7,24 +7,24 @@
 
 import UIKit
 
-extension UIView {
-    public var top:             YAxis       { return self.topAnchor }
-    public var left:            XAxis       { return self.leftAnchor }
-    public var leading:         XAxis       { return self.leadingAnchor }
-    public var trailing:        XAxis       { return self.trailingAnchor }
-    public var bottom:          YAxis       { return self.bottomAnchor }
-    public var right:           XAxis       { return self.rightAnchor }
-    public var width:           Dimension   { return self.widthAnchor}
-    public var height:          Dimension   { return self.heightAnchor }
-    public var centerY:         YAxis       { return self.centerYAnchor }
-    public var centerX:         XAxis       { return self.centerXAnchor }
-    
-    public var superCenterY:    YAxis?      { return superview?.centerYAnchor }
-    public var superCenterX:    XAxis?      { return superview?.centerXAnchor }
-    public var superTop:        YAxis?      { return superview?.top }
-    public var superLeft:       XAxis?      { return superview?.left }
-    public var superLeading:    XAxis?      { return superview?.leading }
-    public var superBottom:     YAxis?      { return superview?.bottomAnchor }
-    public var superRight:      XAxis?      { return superview?.rightAnchor }
-    public var superTrailing:   XAxis?      { return superview?.trailingAnchor }
+public extension UIView {
+  var top: YAxis { return topAnchor }
+  var left: XAxis { return leftAnchor }
+  var leading: XAxis { return leadingAnchor }
+  var trailing: XAxis { return trailingAnchor }
+  var bottom: YAxis { return bottomAnchor }
+  var right: XAxis { return rightAnchor }
+  var width: Dimension { return widthAnchor }
+  var height: Dimension { return heightAnchor }
+  var centerY: YAxis { return centerYAnchor }
+  var centerX: XAxis { return centerXAnchor }
+
+  var superCenterY: YAxis? { return superview?.centerYAnchor }
+  var superCenterX: XAxis? { return superview?.centerXAnchor }
+  var superTop: YAxis? { return superview?.top }
+  var superLeft: XAxis? { return superview?.left }
+  var superLeading: XAxis? { return superview?.leading }
+  var superBottom: YAxis? { return superview?.bottomAnchor }
+  var superRight: XAxis? { return superview?.rightAnchor }
+  var superTrailing: XAxis? { return superview?.trailingAnchor }
 }
