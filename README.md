@@ -5,7 +5,12 @@
 [![License](https://img.shields.io/cocoapods/l/UILab.svg?style=flat)](https://cocoapods.org/pods/UILab)
 [![Platform](https://img.shields.io/cocoapods/p/UILab.svg?style=flat)](https://cocoapods.org/pods/UILab)
 
+UILab - an open-source framework designed to streamline and simplify the process of setting constraints in Swift-based UIKit projects. This framework is dedicated to making the often intricate task of defining layout constraints more intuitive and efficient, empowering developers to create responsive and visually appealing user interfaces with ease.
+
+UILab aims to provide you with a powerful set of tools that abstract the complexities of constraint management, allowing you to focus on crafting delightful user experiences.
+
 ## Installation
+Integrate UILab into your project using your preferred dependency manager (CocoaPods, Swift Package Manager, or Manuel). Detailed installation instructions can be found in the further in the Readme.
 
 ### CocoaPods
 
@@ -26,12 +31,13 @@ UILab is available through SPM. To Install it
 ### Manual
 You can also manually integrate UILab into your project by downloading it from here.
 
-# Usage
+## Usage
+Begin creating constraints using the concise and expressive syntax provided by UILab. Whether you're working with views, labels, buttons, or any other UI element, UILab aims to simplify the process.
 
-## Setting Constraints
-You can use UILab as a matter of your taste. There are 3 ways to use it.
+### Setting Constraints
+You can use UILab as a matter of your taste. There are 3 ways to set constraints.
 
-### 1. With Enum Based Set Function
+#### 1. With Enum Based Set Function
 ```swift
 class ViewController: UIViewController {
   private lazy var containerView = UIView()
@@ -44,7 +50,7 @@ class ViewController: UIViewController {
   }
 }
 ```
-### 2. With Subscript
+#### 2. With Subscript
 ```swift
 class ViewController: UIViewController {
   private lazy var containerView = UIView()
@@ -60,7 +66,7 @@ class ViewController: UIViewController {
 ```
 **Note**: When using subscript style, you must set commit true to activate it.
 
-### 3. With ResultBuilder
+#### 3. With ResultBuilder
 ```swift
 class ViewController: UIViewController {
   private lazy var containerView = UIView()
@@ -78,11 +84,11 @@ class ViewController: UIViewController {
 }
 ```
 
-### Constraint Types
+#### Constraint Types
 You can check all the available constraint types under `ConstraintType` [here](https://github.com/yasinkbas/UILab/blob/9dd2c10cf865277a3baf7d966b5ff5ecb9f0b7a2/Sources/UILab/Constraints/ConstraintTypes.swift#L78C13-L78C27).
 
-## Getting Constraints
-### Get constraints before commit
+### Getting Constraints
+#### Get constraints before commit
 
 ```swift
 var contraintsYouWannaHold: Constraints
@@ -91,14 +97,18 @@ func setup() {
  contraintsYouWannaHold.commit = true // set true, when you want to activate it 
 }
 ```
-### Getting active view constraints
+#### Getting active view constraint
 ```swift
 let myViewHeightAnchor = myView.get(.height).first
 ```
 ## Example
-For more details, you can check the example project [here](https://github.com/yasinkbas/UILab/tree/master/Example).
+To help you grasp the simplicity and power of UILab, let's delve into a few practical examples showcasing how to set constraints for common UI scenarios in [example project](https://github.com/yasinkbas/UILab/tree/master/Example).
 
 **Note**: To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Contribution 
+
+UILab is created for personal use, but all contributions are welcome.
 
 ## License
 
