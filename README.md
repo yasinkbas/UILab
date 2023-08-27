@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/UILab.svg?style=flat)](https://cocoapods.org/pods/UILab)
 [![Platform](https://img.shields.io/cocoapods/p/UILab.svg?style=flat)](https://cocoapods.org/pods/UILab)
 
-UILab - an open-source framework designed to streamline and simplify the process of setting constraints in Swift-based UIKit projects. This framework is dedicated to making the often intricate task of defining layout constraints more intuitive and efficient, empowering developers to create responsive and visually appealing user interfaces with ease.
+UILab - an open-source basic framework designed to streamline and simplify the process of setting constraints in Swift-based UIKit projects for personal usage.
 
 UILab aims to provide you with a powerful set of tools that abstract the complexities of constraint management, allowing you to focus on crafting delightful user experiences.
 
@@ -37,7 +37,7 @@ Begin creating constraints using the concise and expressive syntax provided by U
 ### Setting Constraints
 You can use UILab as a matter of your taste. There are 3 ways to set constraints.
 
-#### 1. With Enum Based Set Function
+#### 1. With Set Function
 ```swift
 class ViewController: UIViewController {
   private lazy var containerView = UIView()
@@ -88,7 +88,9 @@ class ViewController: UIViewController {
 You can check all the available constraint types under `ConstraintType` [here](https://github.com/yasinkbas/UILab/blob/9dd2c10cf865277a3baf7d966b5ff5ecb9f0b7a2/Sources/UILab/Constraints/ConstraintTypes.swift#L78C13-L78C27).
 
 ### Getting Constraints
-#### Get constraints before commit
+You can save for later your constraints before committing or retrieve them easily with `get` function.
+
+#### Get constraints before committing
 
 ```swift
 var contraintsYouWannaHold: Constraints
