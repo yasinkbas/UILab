@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     label.font = label.font.withSize(20)
     label.textAlignment = .center
     label.text = "UILab"
-    label.verboseName = "my_title_label" // (1)
+    label.verboseName = "my_title_label"
     return label
   }()
 
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     view.layer.shadowOffset = .zero
     view.layer.shadowRadius = 10
     view.layer.shouldRasterize = false
-    view.verboseName = "my_yellow_view" // (1)
+    view.verboseName = "my_yellow_view"
     return view
   }()
 
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
   lazy var thinWhiteBar: UIView = {
     let bar = UIView()
     bar.backgroundColor = UIColor.white
-    bar.verboseName = "my_thin_white_bar" // (1)
+    bar.verboseName = "my_thin_white_bar"
     return bar
   }()
 
