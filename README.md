@@ -5,9 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/UILab.svg?style=flat)](https://cocoapods.org/pods/UILab)
 [![Platform](https://img.shields.io/cocoapods/p/UILab.svg?style=flat)](https://cocoapods.org/pods/UILab)
 
-UILab - an open-source basic framework designed to streamline and simplify the process of setting constraints in Swift-based UIKit projects for personal usage.
-
-UILab aims to provide you with a powerful set of tools that abstract the complexities of constraint management, allowing you to focus on crafting delightful user experiences.
+UILab is a simple group of extension frameworks designed to streamline and simplify the process of setting constraints in Swift-based UIKit projects for personal usage.
 
 ## Installation
 Integrate UILab into your project using your preferred dependency manager (CocoaPods, Swift Package Manager, or Manuel). Detailed installation instructions can be found in the further in the Readme.
@@ -110,7 +108,7 @@ To help you grasp the simplicity and power of UILab, let's delve into a few prac
 
 ## Contribution 
 
-UILab is created for personal use, but all contributions are welcome.
+UILab is created for personal usage, but all contributions are welcome.
 
 ## License
 
