@@ -5,10 +5,6 @@
 [![License](https://img.shields.io/cocoapods/l/UILab.svg?style=flat)](https://cocoapods.org/pods/UILab)
 [![Platform](https://img.shields.io/cocoapods/p/UILab.svg?style=flat)](https://cocoapods.org/pods/UILab)
 
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
 ## Installation
 
 ### CocoaPods
@@ -30,8 +26,10 @@ UILab is available through SPM. To Install it
 ### Manual
 You can also manually integrate UILab into your project by downloading it from here.
 
-## Usage
-Using UILab is a matter of your taste. There are 3 ways to use it.
+# Usage
+
+## Setting Constraints
+You can use UILab as a matter of your taste. There are 3 ways to use it.
 
 ### 1. With Enum Based Set Function
 ```swift
@@ -60,7 +58,7 @@ class ViewController: UIViewController {
   }
 }
 ```
-**Note**: When you use subscript style you always need to set commit true to activate it.
+**Note**: When using subscript style, you must set commit true to activate it.
 
 ### 3. With ResultBuilder
 ```swift
@@ -80,10 +78,27 @@ class ViewController: UIViewController {
 }
 ```
 
+### Constraint Types
+You can check all the available constraint types under `ConstraintType` [here](https://github.com/yasinkbas/UILab/blob/9dd2c10cf865277a3baf7d966b5ff5ecb9f0b7a2/Sources/UILab/Constraints/ConstraintTypes.swift#L78C13-L78C27).
 
-## Setting Constraints Examples
+## Getting Constraints
+### Get constraints before commit
 
+```swift
+var contraintsYouWannaHold: Constraints
+func setup() {
+ contraintsYouWannaHold = myView[.center(anotherView), .width(100), .height(100)]
+ contraintsYouWannaHold.commit = true // set true, when you want to activate it 
+}
+```
+### Getting active view constraints
+```swift
+let myViewHeightAnchor = myView.get(.height).first
+```
+## Example
+For more details, you can check the example project [here](https://github.com/yasinkbas/UILab/tree/master/Example).
 
+**Note**: To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## License
 
