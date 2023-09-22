@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/cocoapods/l/UILab.svg?style=flat)]()
 [![Platform](https://img.shields.io/cocoapods/p/UILab.svg?style=flat)]()
 
-UILab is a simple group of extension frameworks designed to streamline and simplify the process of setting constraints in Swift-based UIKit projects for personal usage.
+UILab is a simple group of extension framework designed to streamline and simplify the process of setting constraints in Swift-based UIKit projects for personal usage.
 
 ## Installation
 Integrate UILab into your project using your preferred dependency manager (Swift Package Manager, CocoaPods, or Manuel). Detailed installation instructions can be found in the further in the Readme.
@@ -89,10 +89,10 @@ You can save for later your constraints before committing or retrieve them easil
 #### Get constraints before committing
 
 ```swift
-var contraintsYouWannaHold: Constraints
+var contraintsYouWannaHold: Constraints?
 func setup() {
  contraintsYouWannaHold = myView[.center(anotherView), .width(100), .height(100)]
- contraintsYouWannaHold.commit = true // set true, when you want to activate it 
+ contraintsYouWannaHold?.commit = true // set true, when you want to activate it 
 }
 ```
 #### Getting active view constraint
