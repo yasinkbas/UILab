@@ -1,6 +1,0 @@
-framework module UILab {
-  umbrella header "UILab-umbrella.h"
-
-  export *
-  module * { export * }
-}

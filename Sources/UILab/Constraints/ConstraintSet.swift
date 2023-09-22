@@ -29,6 +29,6 @@ public extension UIView {
   }
 
   subscript(_ constraintList: ConstraintType...) -> Constraints {
-    set(constraints: constraintList, commit: false, priority: 1000)
+    `set`(constraints: constraintList, commit: false, priority: 1000)
   }
 }

@@ -6,6 +6,7 @@
 //
 
 import UILab
+import UIKit
 
 class ViewController: UIViewController {
   lazy var thinBarWidth: CGFloat = self.view.bounds.width / 2 - 10

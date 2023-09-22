@@ -1,23 +1,13 @@
 # UILab
 
 [![CI Status](https://img.shields.io/travis/yasinkbas/UILab.svg?style=flat)](https://travis-ci.org/yasinkbas/UILab)
-[![Version](https://img.shields.io/cocoapods/v/UILab.svg?style=flat)](https://cocoapods.org/pods/UILab)
-[![License](https://img.shields.io/cocoapods/l/UILab.svg?style=flat)](https://cocoapods.org/pods/UILab)
-[![Platform](https://img.shields.io/cocoapods/p/UILab.svg?style=flat)](https://cocoapods.org/pods/UILab)
+[![License](https://img.shields.io/cocoapods/l/UILab.svg?style=flat)]()
+[![Platform](https://img.shields.io/cocoapods/p/UILab.svg?style=flat)]()
 
 UILab is a simple group of extension frameworks designed to streamline and simplify the process of setting constraints in Swift-based UIKit projects for personal usage.
 
 ## Installation
-Integrate UILab into your project using your preferred dependency manager (CocoaPods, Swift Package Manager, or Manuel). Detailed installation instructions can be found in the further in the Readme.
-
-### CocoaPods
-
-UILab is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'UILab'
-```
+Integrate UILab into your project using your preferred dependency manager (Swift Package Manager, CocoaPods, or Manuel). Detailed installation instructions can be found in the further in the Readme.
 
 ### Swift Package Manager
 UILab is available through SPM. To Install it
@@ -28,6 +18,14 @@ UILab is available through SPM. To Install it
 
 ### Manual
 You can also manually integrate UILab into your project by downloading it from here.
+
+### CocoaPods
+UILab no longer supports Cocoapods, but you can still use the latest version `0.3.2` on Cocoapods.
+To install it, add the following line to your Podfile:
+
+```ruby
+pod 'UILab'
+```
 
 ## Usage
 Begin creating constraints using the concise and expressive syntax provided by UILab. Whether you're working with views, labels, buttons, or any other UI element, UILab aims to simplify the process.
